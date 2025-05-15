@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+
+image = cv2.imread('Lab8/img.jpg')
+if image is None:
+    print("Error: Could not read the image.")
+    exit()
+
+image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+image_cmy = 255 - image
+
+cv2.imshow("Original Image", image)
+cv2.imshow("HSV Image", image_hsv)
+cv2.imshow("CMY Image", image_cmy)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
