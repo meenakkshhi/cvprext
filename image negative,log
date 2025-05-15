@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+
+img = cv2.imread('image.jpg', cv2.IMREAD_GRAYSCALE)
+negative = 255 - img
+c = 255 / np.log(1 + np.max(img))
+log_transformed = np.array(c * np.log(1 + img), dtype=np.uint8)
+
+cv2.imshow('Original', img)
+cv2.imshow('Negative', negative)
+cv2.imshow('Log Transformed', log_transformed)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
